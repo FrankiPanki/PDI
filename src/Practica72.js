@@ -55,19 +55,19 @@ export default class Practica72 {
 
         switch (semitono) {
             case "a":
-                this.nombres=["/semiTonos/a1.jpg","/semiTonos/a2.jpg","/semiTonos/a3.jpg","/semiTonos/a4.jpg","/semiTonos/a5.jpg","/semiTonos/a6.jpg","/semiTonos/a7.jpg","/semiTonos/a8.jpg","/semiTonos/a9.jpg","/semiTonos/a10.jpg"];
+                this.nombres=["a1.jpg","a2.jpg","a3.jpg","a4.jpg","a5.jpg","a6.jpg","a7.jpg","a8.jpg","a9.jpg","a10.jpg"];
                 break;
             case "b":
-                this.nombres=["/semiTonos/b9.jpg","/semiTonos/b8.jpg","/semiTonos/b7.jpg","/semiTonos/b6.jpg","/semiTonos/b5.jpg","/semiTonos/b4.jpg","/semiTonos/b3.jpg","/semiTonos/b2.jpg","/semiTonos/b1.jpg","/semiTonos/b0.jpg"];
+                this.nombres=["b9.jpg","b8.jpg","b7.jpg","b6.jpg","b5.jpg","b4.jpg","b3.jpg","b2.jpg","b1.jpg","b0.jpg"];
                 break;
             case "c":
-                this.nombres=["/semiTonos/c4.jpg","/semiTonos/c3.jpg","/semiTonos/c2.jpg","/semiTonos/c1.jpg","/semiTonos/c0.jpg"];
+                this.nombres=["c4.jpg","c3.jpg","c2.jpg","c1.jpg","c0.jpg"];
                 break;
         }
         let map = this.nombres;
         let grays = this.nombres.length-1;
         let avg, ch;
-        let path="https://github.com/FrankiPanki/PDI/blob/master/semiTonos/";
+        let path="../semiTonos/";
 
 
         let imageData2 = this.modelo.context.getImageData(0, 0, this.modelo.canvas.width, this.modelo.canvas.height);
@@ -105,6 +105,7 @@ export default class Practica72 {
                      new Promise((resolve,reject)=>{
                         
                          this.img.setAttribute("src", (path+ch));
+                         console.log(this.img.src);
                          
                          this.img.onload= ()=>{
                             this.minicontext.drawImage(this.img, 0, 0, this.tam, this.tam);
