@@ -67,6 +67,7 @@ export default class Practica72 {
         let map = this.nombres;
         let grays = this.nombres.length-1;
         let avg, ch;
+        let path="https://github.com/FrankiPanki/PDI/blob/master/semiTonos/";
 
 
         let imageData2 = this.modelo.context.getImageData(0, 0, this.modelo.canvas.width, this.modelo.canvas.height);
@@ -96,13 +97,14 @@ export default class Practica72 {
                 }
                 ch = map[Math.round((avg / 255) * grays)];
                 this.minicontext.clearRect(0, 0, this.tam, this.tam);
+                
 
                 //aqui cambi
                 //
                 await 
                      new Promise((resolve,reject)=>{
                         
-                         this.img.setAttribute("src", ch);
+                         this.img.setAttribute("src", (path+ch));
                          
                          this.img.onload= ()=>{
                             this.minicontext.drawImage(this.img, 0, 0, this.tam, this.tam);
