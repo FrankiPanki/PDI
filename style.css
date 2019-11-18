@@ -1,0 +1,117 @@
+@font-face {
+    font-family: domino;
+    src: url("./lib/domino.ttf");
+    }
+html, body{
+    padding: 0%;
+    margin: 0%;
+}
+#container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "navega"
+                         "trabajo";
+
+}
+
+#navega{
+    grid-column-start: navega;
+    grid-column-end: navega;
+    grid-row-start: navega;
+    grid-row-end: navega;
+
+}
+
+#nav{
+    height: 100%;
+}
+#trabajo{
+    background-color: #1E1E1E;
+    grid-column-start: trabajo;
+    grid-column-end: trabajo;
+    grid-row-start: trabajo;
+    grid-row-end: trabajo;
+    display: grid;
+    grid-template-columns: 95.5% 4.5%;
+    grid-template-rows: 100% ;
+    grid-template-areas: "area tools";
+
+
+
+}
+
+#area{
+    grid-column-start: area;
+    grid-column-end: area;
+    grid-row-start: area;
+    grid-row-end: area;
+    background-color: #282828;
+    overflow: scroll;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#tools{
+    grid-column-start: tools;
+    grid-column-end: tools;
+    grid-row-start: tools;
+    grid-row-end: tools;
+    overflow: scroll;
+    padding: 0%;
+    margin: 0%;
+
+}
+
+canvas {
+  display: none;
+  position: relative;
+  border: 1px solid black;
+  box-shadow: 4px 4px 2px 0px rgba(0,0,0,0.35);
+}
+
+
+.ascii{
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    font-family: monospace;
+    font-size: 8px;
+    text-align: center;
+    overflow: scroll;
+    line-height: .7em;
+    background-color: white;
+
+
+}
+
+#btn_quita{
+    visibility: hidden;
+}
+
+#auxiliar{
+    visibility: hidden;
+    background-color: rgb(0, 0, 0);
+}
+
+#minicanvas{
+    visibility: hidden;
+
+}
+
+
+#aux{
+    display: none;
+    width: 0%;
+    height: 0%;
+}
+
+#file{
+    display: none;
+}

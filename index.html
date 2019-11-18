@@ -1,0 +1,201 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="module" src="src/Main.js"></script>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ELEMENTOS AUXILIARES -->
+  <canvas id="auxiliar"></canvas>
+  <canvas id="minicanvas"></canvas>
+  <canvas id="minicanvas2"></canvas>
+  <img id="aux" src="/semiTonos/a2.jpg">
+  <input type="file" id="file" />
+
+
+  <!-- VENTANAS MODALES -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ingresa una frase</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="frase" id="frase">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn_ascii6" data-dismiss="modal">Procesar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="moda2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ingresa un texto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="marca" id="marca">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn_marcaAgua" data-dismiss="modal">Procesar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="container">
+    <div id="navega">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+        <a class="navbar-brand" href="#">PDI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Practica 1
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="btn_grayscale">Escala de grises</a>
+                <a class="dropdown-item" href="#" id="btn_invert">Invertir colores</a>
+                <a class="dropdown-item" href="#" id="btn_red_channel">Canal rojo</a>
+                <a class="dropdown-item" href="#" id="btn_blue_channel">Canal azul</a>
+                <a class="dropdown-item" href="#" id="btn_green_channel">Canal verde</a>
+                <a class="dropdown-item" href="#" id="btn_mosaico">Mosaico</a>
+                <a class="dropdown-item" href="#" id="btn_brillo">Brillo</a>
+                <a class="dropdown-item" href="#" id="btn_alto_contraste">Alto contraste</a>
+                <a class="dropdown-item" href="#" id="btn_cmica">Mica</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Practica 2
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="btn_blur">Blur</a>
+                <a class="dropdown-item" href="#" id="btn_motion_blur">Motion Blur</a>
+                <a class="dropdown-item" href="#" id="btn_encontrar_bordes">Encontrar Bordes</a>
+                <a class="dropdown-item" href="#" id="btn_sharpen">Sharpen</a>
+                <a class="dropdown-item" href="#" id="btn_emboss">Emboss</a>
+                <a class="dropdown-item" href="#" id="btn_promedio">Promedio</a>
+                <a class="dropdown-item" href="#" id="btn_mediana">Mediana</a>
+                <a class="dropdown-item" href="#" id="btn_alto_contraste">Filtro mica</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Practica 3
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="btn_ascii1">Colores sin letras M</a>
+                <a class="dropdown-item" href="#" id="btn_ascii2">Tonos de grises M</a>
+                <a class="dropdown-item" href="#" id="btn_ascii3">MNH#QKAD042$%+.</a>
+                <a class="dropdown-item" href="#" id="btn_ascii4">(1)+(3)</a>
+                <a class="dropdown-item" href="#" id="btn_ascii5">(2)+(3)</a>
+                <a class="dropdown-item" href="#" id="btn_ascii6" data-toggle="modal"
+                  data-target="#exampleModal">Colores con texto</a>
+
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Practica 4
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="btn_marca" data-toggle="modal" data-target="#moda2">Marca de
+                  Agua</a>
+                <a class="dropdown-item" href="#" id="btn_max">Minimo</a>
+                <a class="dropdown-item" href="#" id="btn_min">Maximo</a>
+
+
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Practica 6
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="btn_recursivo_gris">Imagen recursiva gris</a>
+                <a class="dropdown-item" href="#" id="btn_recursivo_color">Imagen recursiva color</a>
+
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Practica 7
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="btn_ecualizacion">Ecualizacion</a>
+                <a class="dropdown-item" href="#" id="btn_semiTono1">Semitono1</a>
+                <a class="dropdown-item" href="#" id="btn_semiTono2">Semitono2</a>
+                <a class="dropdown-item" href="#" id="btn_semiTono3">Semitono3</a>
+
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Proyecto Final
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="fotomosaico">Fotomosaico</a>
+              </div>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            <a href="#" id="btn_open">&nbsp;Subir&nbsp;</a>
+            <a href="#" id="btn_save">&nbsp;Descargar&nbsp;</a>
+          </span>
+        </div>
+      </nav>
+    </div>
+
+    <div id="trabajo">
+
+      <div id="area">
+        <canvas id="drawing" width="0" height="0"></canvas>
+      </div>
+      <div id="tools">
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-secondary" id="btn_undo">Undo</a>
+            <button type="button" class="btn btn-danger" id="btn_quita">Exit</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
